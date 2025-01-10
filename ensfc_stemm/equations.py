@@ -1,5 +1,6 @@
 import math
 from typing import List
+import sympy as sp
 
 def solve_quadratic(a: float, b: float, c: float) -> float | tuple[float, float] | None:
     d = b**2 - 4*a*c
@@ -9,13 +10,25 @@ def solve_quadratic(a: float, b: float, c: float) -> float | tuple[float, float]
         return -b / (2*a)
     else:
         return (-b + math.sqrt(d)) / (2*a), (-b - math.sqrt(d)) / (2*a)
-'''
-def nth_term(*terms: float) -> List[float]:
-    order = 1
-    differences = [terms[i+1] - terms[i] for i in range(len(terms) - 1)]
-    while len(set(differences)) > 1:
-        differences = [differences[i+1] - differences[i] for i in range(len(differences) - 1)]
-        order += 1
+
+def nth_term(*terms):
+    """
+    Determine the nth term formula for a given sequence.
+
+    Args:
+        terms: A sequence of integers representing the sequence.
+
+    Returns:
+        A string representing the nth term in simplified polynomial form.
+    """
+    if len(terms) < 2:
+        raise ValueError("At least two terms are required to determine a pattern.")
     
-    return 0 if differences[0] == 0 else order
-'''
+    n = sp.symbols('n')
+    indices = list(range(1, len(terms) + 1))
+    polynomial = sp.interpolate(list(zip(indices, terms)), n)
+    polynomial = sp.simplify(polynomial)
+    formatted_polynomial = str(polynomial).replace("**", "^")
+    formatted_polynomial = formatted_polynomial.replace("*", "")
+
+    return formatted_polynomial

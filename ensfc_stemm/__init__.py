@@ -1,8 +1,8 @@
 from .calculations import calculate_mean
-from .equations import solve_quadratic
+from .equations import solve_quadratic, nth_term
 from .models import Student, Experiment
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 '''
 This is a package called ensfc-stemm. It contains two modules: calculations and equations.
