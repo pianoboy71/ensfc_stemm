@@ -7,6 +7,7 @@
         - [Functions](#functions)
             - [`calculate_mean`](#calculate_mean)
             - [`solve_quadratic`](#solve_quadratic)
+            - [`nth_term`](#nth_term)
         - [Classes](#classes)
             - [`Student`](#student)
             - [`Experiment`](#experiment)
@@ -54,6 +55,19 @@ roots = solve_quadratic(a, b, c)
 print(f"The roots are: {roots}")
 ```
 
+#### `nth_term
+
+Finds the nth term formula for a given sequence, provided the function is given enough terms to compute a formula
+
+```python
+from ensfc_stemm import nth_term
+
+terms1 = [1, 4, 9, 16, 25]
+print(nth_term(*terms1)) # Output: n^2
+
+print(nth_term(50, 325, 1168, 3059, 6622, 12625)) # Output: 6n^4 + 10n^3 + 14n^2 + 3n + 7
+```
+
 ### Classes
 
 #### `Student`
@@ -90,4 +104,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or suggestions, please contact us at 2403305@eastnorfolk.ac.uk.
+For any questions or suggestions, please contact me at concise_sparsity287626@outlook.com.
